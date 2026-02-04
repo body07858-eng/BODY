@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>رمضان أحلى معاكم ✨</title>
+    <title>رمضان في مصر حاجة تانية ✨</title>
     <style>
         body { background: #1a1a2e; color: #fff; text-align: center; font-family: 'Arial', sans-serif; margin: 0; padding: 20px; overflow-x: hidden; min-height: 100vh; }
         .stars { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; background: radial-gradient(ellipse at bottom, #1B2735 0%, #090A0F 100%); }
@@ -13,43 +13,41 @@
         #page1 { display: block; }
         .card { background: rgba(22, 33, 62, 0.9); padding: 30px; border-radius: 25px; border: 2px solid #ff7f50; box-shadow: 0 10px 30px rgba(0,0,0,0.5); backdrop-filter: blur(5px); }
         button { background: #ff7f50; color: #fff; border: none; padding: 15px; border-radius: 12px; cursor: pointer; font-size: 18px; width: 100%; font-weight: bold; margin-top: 20px; transition: 0.3s; }
+        button:hover { transform: translateY(-3px); }
         img, video { width: 100%; border-radius: 20px; margin-top: 15px; border: 2px solid #ffaf7b; }
         .text-box { background: #0f3460; padding: 20px; border-radius: 15px; margin: 20px 0; line-height: 1.8; border-right: 5px solid #ff7f50; }
-        input { padding: 15px; width: 85%; border-radius: 12px; border: none; text-align: center; margin-bottom: 10px; color: #333; }
+        input { padding: 15px; width: 85%; border-radius: 12px; border: none; text-align: center; margin-bottom: 10px; font-size: 1.1rem; }
         #countdown { display: flex; justify-content: space-around; margin-top: 20px; font-weight: bold; gap: 5px; }
         .time-unit { background: #ff7f50; padding: 8px; border-radius: 10px; flex: 1; }
         .time-unit span { font-size: 1.3rem; display: block; }
         @keyframes slideIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
-        
-        /* تأثير الألعاب النارية */
-        .firework { position: absolute; width: 5px; height: 5px; background: #ff7f50; border-radius: 50%; box-shadow: 0 0 20px #ff7f50; animation: explode 1s ease-out forwards; }
-        @keyframes explode { 0% { transform: scale(1); opacity: 1; } 100% { transform: scale(20); opacity: 0; } }
     </style>
 </head>
 <body>
 
     <div class="stars" id="starField"></div>
+
     <audio id="bgMusic" loop>
-        <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+        <source src="music.mp3" type="audio/mpeg">
     </audio>
 
     <div id="page1" class="page">
         <div class="card">
-            <h1>🌙 سر السعادة 🌙</h1>
-            <p>اكتب الباسورد (2006) وشوف المفاجأة!</p>
-            <input type="password" id="passInput" placeholder="الباسورد هنا...">
+            <h1>🌙 رمضان كريم 🌙</h1>
+            <p>مستني إيه؟ اكتب السر وافتح الهدية! 😉</p>
+            <input type="password" id="passInput" placeholder="اكتب كلمة السر هنا...">
             <button onclick="checkPass()">افتح الهدية 🎁</button>
         </div>
     </div>
 
     <div id="page2" class="page">
-        <div class="card" id="fireworksContainer">
-            <h1>رمضان جانا! 🎇</h1>
+        <div class="card">
+            <h1>فيديو مخصوص ✨</h1>
             <video id="vid" controls><source src="1.mp4" type="video/mp4"></video>
             <div class="text-box">
-                <p>كل سنه واحنا مع بعض ياقلبي ودايما في ضهر بعض.. رمضان أحلى بيك! 💗</p>
+                <p>كل سنه واحنا مع بعض ياقلبي ودايما مهما حصل في ضهر بعض.. بحبكم 💗</p>
             </div>
-            <button onclick="showPage(3)">صورنا سوا 📸</button>
+            <button onclick="showPage(3)">شوف أول صورة 📸</button>
         </div>
     </div>
 
@@ -57,13 +55,13 @@
         <div class="card">
             <h1>أجمل ذكرى 📸</h1>
             <img src="1.jpg.jpeg">
-            <button onclick="showPage(4)">التالية 🔥</button>
+            <button onclick="showPage(4)">اللي بعدها 🔥</button>
         </div>
     </div>
 
     <div id="page4" class="page">
         <div class="card">
-            <h1>ضحكتنا ❤️</h1>
+            <h1>ضحكتنا سوا ❤️</h1>
             <img src="2.jpg.jpeg">
             <button onclick="showPage(5)">رسالة ليك 💌</button>
         </div>
@@ -71,67 +69,68 @@
 
     <div id="page5" class="page">
         <div class="card">
-            <h1>كلمة من القلب 😂</h1>
+            <h1>كلام من القلب 😂</h1>
             <div class="text-box">
-                <p>رمضان كريم يا حب، ونرخم على بعض زاي كل سنه كدة.. رمضان مبارك! 🌙✨</p>
+                <p>رمضان كريم يا قلبي، وكل سنه واحنا مع بعض كل رمضان.. رمضان أحلى بيك! 🌙✨</p>
             </div>
-            <button onclick="showPage(6)">العد التنازلي ⏳</button>
+            <button onclick="showPage(6)">فاضل قد إيه؟ ⏳</button>
         </div>
     </div>
 
     <div id="page6" class="page">
         <div class="card">
-            <h1>⏳ مستنيين رمضان ⏳</h1>
+            <h1>🌙 رمضان مبارك 🌙</h1>
+            <p>فاضل على أجمل أيام السنة:</p>
             <div id="countdown">
                 <div class="time-unit"><span id="days">0</span>يوم</div>
                 <div class="time-unit"><span id="hours">0</span>ساعة</div>
                 <div class="time-unit"><span id="mins">0</span>دقيقة</div>
                 <div class="time-unit" style="background: #e94560;"><span id="secs">0</span>ثانية</div>
             </div>
-            <button onclick="showPage(1)" style="background: #555;">من الأول</button>
+            <button onclick="showPage(1)" style="background: #555; margin-top:20px;">الرجوع للرئيسية</button>
         </div>
     </div>
 
     <script>
         // نجوم الخلفية
         const starField = document.getElementById('starField');
-        for (let i = 0; i < 80; i++) {
+        for (let i = 0; i < 100; i++) {
             const star = document.createElement('div');
             star.className = 'star';
-            star.style.width = Math.random() * 2 + 'px';
+            star.style.width = Math.random() * 3 + 'px';
             star.style.height = star.style.width;
             star.style.left = Math.random() * 100 + '%';
             star.style.top = Math.random() * 100 + '%';
             starField.appendChild(star);
         }
 
-        function createFirework() {
-            const container = document.getElementById('fireworksContainer');
-            for(let i=0; i<10; i++) {
-                const fw = document.createElement('div');
-                fw.className = 'firework';
-                fw.style.left = Math.random() * 100 + '%';
-                fw.style.top = Math.random() * 100 + '%';
-                fw.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 50%)`;
-                container.appendChild(fw);
-                setTimeout(() => fw.remove(), 1000);
-            }
-        }
-
         function checkPass() {
-            if (document.getElementById("passInput").value === "2006") {
-                showPage(2);
-                document.getElementById('bgMusic').play(); // تشغيل المزيكا
-                createFirework(); // فرقعة احتفال
-            } else {
-                alert("الباسورد غلط يا برنس! 😉");
+            if (document.getElementById("passInput").value === "2006") { 
+                showPage(2); 
+            } else { 
+                alert("الباسورد غلط يا برنس! 😉"); 
             }
         }
 
         function showPage(num) {
             document.querySelectorAll('.page').forEach(p => p.style.display = 'none');
             document.getElementById('page' + num).style.display = 'block';
-            if(num === 2) document.getElementById('vid').play();
+            
+            let music = document.getElementById('bgMusic');
+            let video = document.getElementById('vid');
+
+            if (num === 2) { 
+                // فيديو: نشغل الفيديو ونقفل المزيكا
+                video.play();
+                music.pause();
+            } else if (num >= 3) {
+                // صور: نقفل الفيديو ونشغل الجسمي
+                video.pause();
+                music.play();
+            } else {
+                music.pause();
+                video.pause();
+            }
             window.scrollTo(0,0);
         }
 
