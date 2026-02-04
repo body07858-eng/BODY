@@ -6,12 +6,9 @@
     <title>رمضان كريم ✨</title>
     <style>
         body { background: #1a1a2e; color: #fff; text-align: center; font-family: 'Arial', sans-serif; margin: 0; padding: 20px; overflow-x: hidden; position: relative; min-height: 100vh; }
-        
-        /* تأثير النجوم والفوانيس في الخلفية */
         .stars { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; background: radial-gradient(ellipse at bottom, #1B2735 0%, #090A0F 100%); overflow: hidden; }
         .star { position: absolute; background: white; border-radius: 50%; opacity: 0.5; animation: blink 2s infinite; }
         @keyframes blink { 0%, 100% { opacity: 0.3; } 50% { opacity: 1; } }
-
         .page { display: none; max-width: 500px; margin: 40px auto; animation: slideIn 0.6s ease-out; position: relative; z-index: 1; }
         #page1 { display: block; }
         .card { background: rgba(22, 33, 62, 0.9); padding: 30px; border-radius: 25px; border: 2px solid #ff7f50; box-shadow: 0 10px 30px rgba(0,0,0,0.5); backdrop-filter: blur(5px); }
@@ -21,9 +18,10 @@
         .text-box { background: #0f3460; padding: 20px; border-radius: 15px; margin: 20px 0; line-height: 1.8; font-size: 1.1rem; border-right: 5px solid #ff7f50; }
         input { padding: 15px; width: 85%; border-radius: 12px; border: none; text-align: center; margin-bottom: 10px; }
         
-        /* العداد التنازلي */
-        #countdown { display: flex; justify-content: space-around; margin-top: 20px; font-weight: bold; }
-        .time-unit { background: #ff7f50; padding: 10px; border-radius: 10px; min-width: 60px; }
+        /* العداد التنازلي المطور */
+        #countdown { display: flex; justify-content: space-around; margin-top: 20px; font-weight: bold; flex-wrap: wrap; gap: 10px; }
+        .time-unit { background: #ff7f50; padding: 10px; border-radius: 10px; min-width: 70px; flex: 1; }
+        .time-unit span { font-size: 1.5rem; display: block; }
 
         @keyframes slideIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
     </style>
@@ -83,9 +81,10 @@
             <h1>🌙 رمضان مبارك 🌙</h1>
             <p>فاضل على أجمل أيام السنة:</p>
             <div id="countdown">
-                <div class="time-unit"><span id="days">0</span><br>يوم</div>
-                <div class="time-unit"><span id="hours">0</span><br>ساعة</div>
-                <div class="time-unit"><span id="mins">0</span><br>دقيقة</div>
+                <div class="time-unit"><span id="days">0</span>يوم</div>
+                <div class="time-unit"><span id="hours">0</span>ساعة</div>
+                <div class="time-unit"><span id="mins">0</span>دقيقة</div>
+                <div class="time-unit" style="background: #e94560;"><span id="secs">0</span>ثانية</div>
             </div>
             <div class="text-box" style="margin-top:25px;">
                 كل سنة وأنت طيب ومنور دنيتي دايماً.
@@ -95,7 +94,6 @@
     </div>
 
     <script>
-        // إنشاء النجوم في الخلفية
         const starField = document.getElementById('starField');
         for (let i = 0; i < 100; i++) {
             const star = document.createElement('div');
@@ -120,9 +118,9 @@
             window.scrollTo(0,0);
         }
 
-        // حساب وقت رمضان (افتراضياً 1 مارس 2026)
+        // التعديل هنا: تاريخ رمضان بعد 14 يوم من تاريخ اليوم (4 فبراير)
         function updateCountdown() {
-            const ramadanDate = new Date("March 1, 2026 00:00:00").getTime();
+            const ramadanDate = new Date("February 18, 2026 00:00:00").getTime();
             const now = new Date().getTime();
             const diff = ramadanDate - now;
 
@@ -130,6 +128,9 @@
                 document.getElementById("days").innerText = Math.floor(diff / (1000 * 60 * 60 * 24));
                 document.getElementById("hours").innerText = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
                 document.getElementById("mins").innerText = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+                document.getElementById("secs").innerText = Math.floor((diff % (1000 * 60)) / 1000);
+            } else {
+                document.getElementById("countdown").innerHTML = "<h2>رمضان كريم! 🌙</h2>";
             }
         }
         setInterval(updateCountdown, 1000);
